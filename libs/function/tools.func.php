@@ -112,8 +112,58 @@ function alikeyvalue($cid,$field,$value)
 
 }
 
+/**
+ * 带附件的邮件发送
+ * @param $to
+ * @param $subject
+ * @param $body
+ * @param null $att
+ * @return bool
+ */
+function alisend_mail($to,$subject,$body,$att=null) {
+    if($to=='') return false;
+    require_once COREFRAME_ROOT.'extend/class/PHPMailer/PHPMailerAutoload.php';
+    $mail = new PHPMailer;
+    $config = get_cache('sendmail');
 
+    $password = decode($config['password']);
+    $smtp_server = $config['smtp_server'];
+    $smtp_user = $config['smtp_user'];
+    $send_email = $config['send_email'];
+    $smtp_port = $config['smtp_port'];
 
+    //$mail->SMTPDebug = 3;                               // Enable verbose debug output
+    $mail->CharSet    ="UTF-8";
+    $mail->isSMTP();                                      // Set mailer to use SMTP
+    $mail->Host = $smtp_server;  // Specify main and backup SMTP servers
+    $mail->SMTPAuth = true;                               // Enable SMTP authentication
+    $mail->Username = $smtp_user;                 // SMTP username
+    $mail->Password = $password;                           // SMTP password
+    $mail->SMTPSecure = $config['openssl'] ? 'ssl' : '';                            // Enable TLS encryption, `ssl` also accepted
+    $mail->Port = $smtp_port;                                    // TCP port to connect to
+
+    $mail->setFrom($send_email, $config['nickname']);
+    $mail->isHTML(true);
+    $emails = explode(';',$to);
+    foreach($emails as $_to) {
+        $tmp_body = str_replace('TO_EMAIL',$_to,$body);
+        $mail->addAddress($_to);
+        $mail->Subject = $subject;
+        $mail->Body    = $tmp_body;
+
+        if($att!=null){
+            foreach ($att as $a)
+            {
+                $mail->addAttachment($a['path'],$a['name']);
+                
+            }
+        }
+
+        if(!$mail->send()) {
+            return false;
+        }
+    }
+}
 
 
 
