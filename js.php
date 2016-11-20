@@ -22,11 +22,11 @@ class js{
 
     public function test()
     {
-        load_function("tools","alicms");
-        $att = array();
-        array_push($att,array("name"=>"multiimg.zip","path"=>COREFRAME_ROOT."app/alicms/multiimg.zip"));
-        array_push($att,array("name"=>"README.md","path"=>COREFRAME_ROOT."app/alicms/README.md"));
-        alisend_mail("xienaizhong@qq.com","subject","body",$att);
+//        load_function("tools","alicms");
+//        $att = array();
+//        array_push($att,array("name"=>"multiimg.zip","path"=>COREFRAME_ROOT."app/alicms/multiimg.zip"));
+//        array_push($att,array("name"=>"README.md","path"=>COREFRAME_ROOT."app/alicms/README.md"));
+//        alisend_mail("xienaizhong@qq.com","subject","body",$att);
 
 
 
