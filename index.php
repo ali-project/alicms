@@ -93,6 +93,11 @@ class index
     }
 
 
+    public function getv()
+    {
+        load_function("tools","alicms");
+        echo getVersion();
+    }
 
 
 

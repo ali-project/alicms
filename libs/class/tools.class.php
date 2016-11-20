@@ -8,14 +8,7 @@
 defined('IN_WZ') or exit('No direct script access allowed');
 
 class WUZHI_tools {
-	private $version="2.0.1";
-
-
-
-	public function getVersion()
-	{
-		return $this->version;
-	}
+	
 
 
 	public function addsetting($key,$m,$f,$v)

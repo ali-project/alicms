@@ -28,8 +28,8 @@ class index extends WUZHI_admin {
 	public function init()
 	{
 
-		$db = load_class("tools","alicms");
-		$version = $db->getVersion();
+		load_function("tools","alicms");
+		$version = getVersion();
 
 
 

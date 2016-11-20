@@ -19,4 +19,15 @@ class js{
         include "res/js/jquery.min.js";
 
     }
+
+    public function test()
+    {
+        echo file_get_contents("http://www.baidu.com");
+
+
+
+    }
+
+
+
 }

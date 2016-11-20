@@ -1,4 +1,12 @@
 <?php
+
+ function getVersion()
+{
+    return "2.0.2";
+}
+
+
+
 /**
  * 根据cid获取相对表名称
  */
@@ -69,3 +77,46 @@ function setgetviews($cid,$id)
 
     return  array("status"=>0,"views"=>$result[0]['views']);
 }
+
+function alikeyvalue($cid,$field,$value)
+{
+    //根据cid获取到model
+    $db = load_class("mydb","alicms");
+
+    $c['cid'] = $cid ;
+    $result = $db->where($c)->getall("category");
+    $d['modelid'] = $result[0]['modelid'];
+    $d['field'] = $field;
+    $result = $db->where($d)->getall("model_field");
+    $temp = $result[0]['setting'];
+
+    $setting = unserialize($temp);
+    $setting = $setting['options'];
+    $arr = $arr = explode("\n",$setting);
+
+    $array = array();
+    foreach($arr as $t)
+    {
+        $arr2 = explode("|",$t);
+
+        $array[str_replace(" ","",str_replace(chr(13),chr(32),$arr2[1]))]=$arr2[0] ;
+
+    }
+
+    return($array[$value]);
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+

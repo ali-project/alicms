@@ -18,8 +18,17 @@ div#wz_linkage{display: inline;}
 
 
 <div class="panel-body" id="panel-bodys">
-<h1>当前版本v<?php echo $version;?></h1>
-    <h1><a href="/index.php?m=alicms&f=init">初始化</a></a></h1>
+<h1>当前版本v<?php echo $version;?>|最新版本:v<span id="newest"><?php echo file_get_contents("http://alicms.9hlh.com/index.php?m=alicms&v=getv"); ?></span></h1>
+
+
+
+    <h1><a href="/index.php?m=alicms&f=init">初始化</a></h1>
+    <p style="color: red">点击初始化不会破坏数据,请放心升级</p>
+
+    <h3>下载地址:<a href="https://github.com/alicms/alicms" target="_blank">https://github.com/alicms/alicms</a>
+    </h3>
+
+
 </div>
 	<div class="panel-body">
         <div class="row">
