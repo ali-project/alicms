@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="/index.php?m=alicms&f=js&v=jquery"></script>
+    <script src="/index.php?m=alicms&f=apijs"></script>
+
+</head>
+<body>
+
+
+<p>mobile:<input id="mobile"></p>
+<p>验证码:<img src="/api/identifying_code.php" onclick="flush()"><input id="code"></p>
+<p><button id="ok">发送</button></p>
+
+
+
+
+<p><input id="check"><button id="get">验证</button></p>
+
+<script>
+    $("#ok").click(function () {
+
+
+
+        var callback = function (data) {
+            alert(data.status+data.msg)
+        }
+
+
+        var isMobile = /^(((1[0-9]{1}))+\d{9})$/
+        if(!$("#mobile").val().match(isMobile)){
+            alert("手机号格式错误")
+            return ;
+        }
+
+
+        $(this).attr("disabled","disabled");
+
+        sendsms($("#mobile").val(),$("#code").val(),callback);
+
+    });
+    $("#get").click(function () {
+
+        var callback = function (data) {
+            alert(data.status+data.msg)
+        }
+
+        checksms($("#mobile").val(),$("#check").val(),callback);
+
+
+
+    });
+
+    function flush() {
+        $("img").attr("src","/api/identifying_code.php?a="+Math.random());
+
+
+        var aaa = function (data) {
+            alert(data);
+        }
+
+        getcode(aaa);
+
+
+
+    }
+
+
+
+    var aaa = new Object();
+    aaa.page=4;
+    aaa.cid=6;
+    aaa.count=1 ;
+    aaa.order = "sort DESC,id DESC";
+    //aaa.where = "sort=255,id=20";
+    pages(aaa,function (data) {
+        document.writeln(data);
+    })
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+</body>
+</html>
+
+

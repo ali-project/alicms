@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="/index.php?m=alicms&f=js&v=jquery"></script>
+    <script src="/index.php?m=alicms&f=apijs"></script>
+</head>
+<body>
+<p>cid:<input id="cid" value="6">|count:<input id="count" value="2"></p>
+<ul id="target123">
+
+
+
+</ul>
+
+<div id="source" style="display: none">
+    <li><a href="{data.url}">{data.title}</a></li>
+
+</div>
+<button id="next" onclick="next()">下一页</button>
+<script>
+    var page = 1 ;
+    //亮点:可以随意切割字段的字数
+    //限制字符字数
+    var cut = new Object();
+    cut.title = 8;//title保证在8位之内
+    cut.remark = 20 ;//remark保证在20位之内
+
+    //完成的回调函数
+    var callback = function (counts) {
+        if(counts==0){
+            //
+            $("#next").attr("disabled","disabled");
+            $("#next").html("没有更多内容了");
+        }
+    }
+    function next() {
+
+        var cid = $("#cid").val();
+        var count = $("#count").val();
+
+
+
+
+        getnextpage(cid,page,count,"source","target123",callback,cut);
+        page = page+1 ;
+    }
+
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
+
+

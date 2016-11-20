@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="/index.php?m=alicms&f=js&v=jquery"></script>
+    <script src="/index.php?m=alicms&f=apijs"></script>
+</head>
+<body>
+
+
+<p>邮件地址:<input id="email"></p>
+<p>主题:<input id="subject"></p>
+<p>邮件正文:<textarea id="body"></textarea></p>
+
+
+
+<select id="x">
+
+    <option value="0">STMP发送</option>
+    <option value="1">阿里云发送</option>
+
+
+
+</select>
+
+
+
+<p><button id="ok">发送邮件</button></p>
+
+<script>
+    $("#ok").click(function () {
+        $(this).attr("disabled","disabled");
+        var callback = function (data) {
+            alert(data.status)
+        }
+
+        var x =($("#x").val());
+
+if(x==0){
+
+    sendmail($("#email").val(),$("#subject").val(),$("#body").val(),callback);
+}
+else{
+
+    sendmailaliyun($("#email").val(),$("#subject").val(),$("#body").val(),callback);
+}
+
+
+
+
+
+
+    });
+
+</script>
+
+
+
+</body>
+</html>
+
+

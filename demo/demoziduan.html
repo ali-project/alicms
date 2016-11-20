@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="/index.php?m=alicms&f=js&v=jquery"></script>
+    <script src="/index.php?m=alicms&f=apijs"></script>
+</head>
+<body>
+
+<p>表名:<input id="table" value=""></p>
+<p>参数:<input id="canshu" value="aaa=xienaizhong&bbb=naizhongxie"></p>
+<p><button id="ok">发送</button></p>
+
+<script>
+    $("#ok").click(function () {
+
+        var callback = function (data) {
+            alert(data.status);
+        }
+
+
+        saveziduan($("#table").val(),$("#canshu").val(),callback);
+
+    });
+
+</script>
+
+
+</body>
+</html>
+
+
