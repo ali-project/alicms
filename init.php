@@ -179,7 +179,11 @@ class init
 
         //自定义字段
         $this->addmenu("index","listing","自定义字段",$rid,"");
-        
+
+        //刷新静态
+        $this->addmenu("createhtml","listing","刷新静态文件",$rid,"");
+
+
         $this->initdb_alicms();
         $this->initdb_ziduan();
         $this->initdb_ziduanx();
