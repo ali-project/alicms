@@ -22,11 +22,21 @@ class js{
 
     public function test()
     {
-
         load_function("tools","alicms");
 
-        alidump($GLOBALS);
-        echo "<br>";
+
+        $db = load_class("mydb","alicms");
+        $reuslt = $db->getbyid("yuyue",8);
+            alidump($reuslt);
+
+
+
+//
+//
+
+//
+//        alidump($GLOBALS);
+//        echo "<br>";
 
 
 
@@ -39,17 +49,17 @@ class js{
 //        $db = load_class("mydb","alicms");
 //        $result = $db->getall("category");
 //        alidump($result);
-        $form = load_class('form');
-        $categorys = get_cache('category','content');
-        foreach($categorys as $cid=>$cate) {
-            $categorys[$cid]['cid'] = $cid;
-        }
-       // alidump($categorys);
-        $form = load_class('form');
-        echo "<form name=\"form1\" method=\"post\" action=''>";
-        echo $formcategorys = $form->tree_select($categorys, 0, 'name="catids[]" class="form-control" multiple="multiple" title="按住“Ctrl”或“Shift”键可以多选，按住“Ctrl”可取消选择"', '≡ 全部 ≡');
-        echo "<button type=\"submit\" class=\"btn btn-primary\"><i class=\"icon-cycle btn-icon\"></i>生成栏目页html</button>";
-        echo "</form>";
+//        $form = load_class('form');
+//        $categorys = get_cache('category','content');
+//        foreach($categorys as $cid=>$cate) {
+//            $categorys[$cid]['cid'] = $cid;
+//        }
+//       // alidump($categorys);
+//        $form = load_class('form');
+//        echo "<form name=\"form1\" method=\"post\" action=''>";
+//        echo $formcategorys = $form->tree_select($categorys, 0, 'name="catids[]" class="form-control" multiple="multiple" title="按住“Ctrl”或“Shift”键可以多选，按住“Ctrl”可取消选择"', '≡ 全部 ≡');
+//        echo "<button type=\"submit\" class=\"btn btn-primary\"><i class=\"icon-cycle btn-icon\"></i>生成栏目页html</button>";
+//        echo "</form>";
 
 
 

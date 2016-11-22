@@ -18,14 +18,11 @@ class WUZHI_mydb {
 
 	}
 
-
-
-
 	public function getfield($table)
 	{
 		$where['dbname'] = $table ;
 		$result = $this->begin()->where($where)->getall("ziduanx");
-
+		$this->begin();
 		return $result;
 	}
 
@@ -59,31 +56,43 @@ class WUZHI_mydb {
 
 	public function getall($table){
 
-		return $this->db->get_list($table,$this->where,'*',0,$this->count,$this->from,$this->order);
+		$result = $this->db->get_list($table,$this->where,'*',0,$this->count,$this->from,$this->order);
+		$this->begin();
+
+		return $result;
 
 	}
 	public function getbyid($table,$id){
-		
-
-		return $this->db->get_one($table,$id);
+		$result = $this->db->get_one($table,"id=$id");
+		$this->begin();
+		return $result;
 
 	}
 
 	public function save($table,$c)
 	{
-		return $this->db->update($table, $c, $this->where);
+		$result = $this->db->update($table, $c, $this->where);
+		$this->begin();
+		return $result;
 	}
 	public function add($table,$c)
 	{
-		return $this->db->insert($table, $c);
+		$result = $this->db->insert($table, $c);
+		$this->begin();
+		return $result;
 	}
 	public function delete($table,$c)
 	{
-		return $this->db->delete($table, $c);
+		$result = $this->db->delete($table, $c);
+		$this->begin();
+		return $result;
 	}
 	public function query($sql)
 	{
-		return  $this->db->query($sql);
+
+		$result =$this->db->query($sql);
+		$this->begin();
+		return  $result;
 	}
 
 
