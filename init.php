@@ -190,9 +190,22 @@ class init
         $this->initdb_alisms();
         MSG("初始化成功");
         
-        
-        
-
 
     }
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
