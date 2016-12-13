@@ -169,7 +169,23 @@ function pages(obj,callback) {
 
 }
 
+function alipages(obj,callback) {
+    pages(obj,callback);
+}
 
 
+function aliismobile(mobile) {
+    var reg = /^(((1[0-9]{2}))+\d{8})$/ ;
+    return reg.test(mobile);
+}
+function aliisidcard(idcard) {
+    var reg = /^\d{17}(\d|X|x)$/;
+    return reg.test(idcard);
+}
+
+function aliisemail(email) {
+    var reg = /\w+[@]{1}\w+[.]\w+/;
+    return reg.test(email);
+}
 
 
