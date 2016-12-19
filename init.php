@@ -146,7 +146,31 @@ class init
 
     }
 
+    public function initdb_jingtai_html()
+    {
 
+        $this->db = load_class("db");
+        $t = get_config("mysql_config");
+        $config =$t['default']['tablepre'];
+
+
+        $sql = "SHOW TABLES LIKE '".$config."jingtai_html';";
+        $r = $this->db->query($sql);
+
+        if($r->num_rows==0) {
+            $sql = "CREATE TABLE `" . $config . "jingtai_html` (
+              `id` int(10) NOT NULL AUTO_INCREMENT,
+              `cid` int(10) DEFAULT NULL,
+              `pid` int(10) DEFAULT NULL,
+              `html` varchar(255) DEFAULT NULL,
+              PRIMARY KEY (`id`)
+            ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8";
+            $this->db->query($sql);
+
+        }
+
+
+    }
 
 
     public function init()
@@ -184,10 +208,12 @@ class init
         $this->addmenu("createhtml","listing","刷新静态文件",$rid,"");
 
 
+
         $this->initdb_alicms();
         $this->initdb_ziduan();
         $this->initdb_ziduanx();
         $this->initdb_alisms();
+        $this->initdb_jingtai_html();
         MSG("初始化成功");
         
 
