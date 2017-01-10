@@ -120,6 +120,11 @@ function getnextpage(cid,page,count,sourceid,targetid,noresultcallback,cut) {
                                 b=b.substring(0,cut[i]);
                             }
                         }
+
+                        if(result.indexOf("kv."+a)>0){
+                            result =result.replace("{data.kv."+a+"}",getkeyvalue(cid,a,b));
+                        }
+                        
                         result =result.replace("{data."+a+"}",b);
 
 
@@ -189,3 +194,13 @@ function aliisemail(email) {
 }
 
 
+function getkeyvalue(cid,ziduan,value) {
+
+    var html = $.ajax({
+        url:"/index.php?m=alicms&f=ajaxapi&v=getkeyvalue&cid="+cid+"&ziduan="+ziduan+"&value="+value,
+        async: false
+    }).responseText;
+
+    return html;
+
+}

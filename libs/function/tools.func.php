@@ -2,7 +2,7 @@
 
  function getVersion()
 {
-    return "2.0.6";
+    return "2.0.7";
 }
 
 
@@ -71,6 +71,9 @@ function setgetviews($cid,$id)
     $c['cid'] = $cid;
     $c['id'] = $id;
     $result = $db->where($c)->getall("content_rank");
+    if(count($result)==0){
+        $db->add("content_rank",$c);
+    }
     $d['views'] = $result[0]["views"]+1;
     $db->where($c)->save("content_rank",$d);
 
@@ -84,10 +87,10 @@ function alikeyvalue($cid,$field,$value)
     $db = load_class("mydb","alicms");
 
     $c['cid'] = $cid ;
-    $result = $db->where($c)->getall("category");
+    $result = $db->begin()->where($c)->getall("category");
     $d['modelid'] = $result[0]['modelid'];
     $d['field'] = $field;
-    $result = $db->where($d)->getall("model_field");
+    $result = $db->begin()->where($d)->getall("model_field");
     $temp = $result[0]['setting'];
 
     $setting = unserialize($temp);

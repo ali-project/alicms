@@ -202,7 +202,15 @@ class ajaxapi
 
 
 
+    public function getkeyvalue(){
+        $cid = $GLOBALS['cid'];
+        $ziduan = $GLOBALS['ziduan'];
+        $value = $GLOBALS['value'];
+        load_function("tools","alicms");
+        echo alikeyvalue($cid,$ziduan,$value);
 
+
+    }
 
 
 

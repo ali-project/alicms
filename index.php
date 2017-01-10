@@ -86,6 +86,11 @@ class index
             }
         }
 
+
+        if(isset($GLOBALS['tourl'])){
+            header("Location:".$GLOBALS['tourl']);
+        }
+
         MSG($GLOBALS['msg'],HTTP_REFERER,500);
 
 
