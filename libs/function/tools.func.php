@@ -2,7 +2,7 @@
 
  function getVersion()
 {
-    return "2.0.8";
+    return "2.0.9";
 }
 
 
@@ -338,7 +338,7 @@ function aligetziduanlist($table,$where="1=1",$order="id",$page=1,$pagesize=20){
 
 }
 
-function aligetziduanshow($table,$where="1=1"){
+function aligetziduanshow($table,$where){
     load_function("tools","alicms");
     $db = load_class("mydb","alicms");
     $result = $db->where($where)->getall($table);
