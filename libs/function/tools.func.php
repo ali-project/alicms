@@ -329,5 +329,20 @@ function saveziduan($c){
 
 }
 
+function aligetziduanlist($table,$where="1=1",$order="id",$page=1,$pagesize=20){
+    load_function("tools","alicms");
+    $db = load_class("mydb","alicms");
+    $result = $db->where($where)->order($order)->page($page,$pagesize)->getall($table);
 
+    return $result ;
 
+}
+
+function aligetziduanshow($table,$where="1=1"){
+    load_function("tools","alicms");
+    $db = load_class("mydb","alicms");
+    $result = $db->where($where)->getall($table);
+
+    return $result[0] ;
+
+}
