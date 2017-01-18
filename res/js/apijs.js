@@ -80,6 +80,18 @@ function getcode(callback) {
 
 }
 
+function getviews(cid,id,callback) {
+
+    $.ajax({
+        url:"/index.php?m=alicms&f=ajaxapi&v=getviews&cid="+cid+"&id="+id,
+        method:"get",
+        dataType:"json",
+        success:callback
+    })
+
+}
+
+
 function getuid(callback) {
     $.ajax({
         url:"/index.php?m=alicms&f=ajaxapi&v=getuid",
@@ -204,3 +216,6 @@ function getkeyvalue(cid,ziduan,value) {
     return html;
 
 }
+
+
+

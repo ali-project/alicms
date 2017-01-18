@@ -211,6 +211,14 @@ class ajaxapi
 
 
     }
+    public function getviews(){
+        $cid = $GLOBALS['cid'];
+        $id = $GLOBALS['id'];
+        load_function("tools","alicms");
+        echo json_encode(setgetviews($cid,$id)) ;
+
+
+    }
 
 
 
