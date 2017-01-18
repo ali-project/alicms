@@ -10,7 +10,7 @@ include $this->template('header','core');
 <section class="panel">
     <?php echo $this->menu($GLOBALS['_menuid']);?>
 <h3>请配合七牛API使用</h3>
-    <h4><a href="http://www.kancloud.cn/alicms/alicms/226124" target="_blank">开发文档</a></h4>
+    <h4><a href="http://www.kancloud.cn/ali-project/alicms/226124" target="_blank">开发文档</a></h4>
     <div class="panel-body">
         <form class="form-horizontal tasi-form" method="post" action="">
 

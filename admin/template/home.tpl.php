@@ -26,7 +26,7 @@ div#wz_linkage{display: inline;}
     <p style="color: red">点击初始化不会破坏数据,请放心升级</p>
 
     <h3>下载地址:<a href="https://github.com/alicms/alicms" target="_blank">https://github.com/alicms/alicms</a></h3>
-    <h3>文档地址:<a href="http://www.kancloud.cn/alicms/alicms" target="_blank">http://www.kancloud.cn/alicms/alicms</a></h3>
+    <h3>文档地址:<a href="http://www.kancloud.cn/ali-project/alicms" target="_blank">http://www.kancloud.cn/alicms/alicms</a></h3>
 
 
 </div>
