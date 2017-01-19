@@ -2,7 +2,7 @@
 
  function getVersion()
 {
-    return "2.0.9";
+    return "2.1.0";
 }
 
 
