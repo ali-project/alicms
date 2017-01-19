@@ -217,5 +217,22 @@ function getkeyvalue(cid,ziduan,value) {
 
 }
 
+function aligetsearch(key,cid,callback) {
 
+
+        $.ajax({
+            url:"/index.php?m=alicms&f=ajaxapi&v=aligetsearch",
+            method:"get",
+            dataType:"json",
+            data:{
+              key:  key,
+              cid:cid
+            },
+            success:callback
+        })
+
+
+
+
+}
 

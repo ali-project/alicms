@@ -172,6 +172,41 @@ class init
 
     }
 
+    /*
+     CREATE TABLE `ali_alisearch_cache` (
+
+     */
+
+
+    public function initdb_searchCache()
+    {
+
+        $this->db = load_class("db");
+        $t = get_config("mysql_config");
+        $config =$t['default']['tablepre'];
+
+
+        $sql = "SHOW TABLES LIKE '".$config."alisearch_cache';";
+        $r = $this->db->query($sql);
+
+        if($r->num_rows==0) {
+            $sql = "CREATE TABLE `" . $config . "alisearch_cache` (
+              `_id` int(11) NOT NULL AUTO_INCREMENT,
+              `id` int(11) DEFAULT NULL,
+              `cid` int(11) DEFAULT NULL,
+              `title` varchar(255) DEFAULT NULL,
+              `addtime` int(11) DEFAULT NULL,
+              PRIMARY KEY (`_id`)
+            ) ENGINE=InnoDB DEFAULT CHARSET=utf8";
+            $this->db->query($sql);
+
+        }
+
+
+    }
+
+
+
 
     public function init()
     {
@@ -207,14 +242,16 @@ class init
         //刷新静态
         $this->addmenu("createhtml","listing","刷新静态文件",$rid,"");
 
-
+        //搜索缓存..
+        $this->addmenu("searchcache","listing","刷新搜索缓存",$rid,"");
 
         $this->initdb_alicms();
         $this->initdb_ziduan();
         $this->initdb_ziduanx();
         $this->initdb_alisms();
         $this->initdb_jingtai_html();
-        MSG("初始化成功");
+        $this->initdb_searchCache();
+        MSG("初始化成功",HTTP_REFERER,3000);
         
 
     }

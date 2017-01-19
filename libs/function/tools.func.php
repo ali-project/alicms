@@ -346,3 +346,20 @@ function aligetziduanshow($table,$where){
     return $result[0] ;
 
 }
+
+
+function aligetsearch($key,$cid=0)
+{
+    load_function("tools","alicms");
+    $db = load_class("mydb","alicms");
+    $c = "title like '%".$key."%'";
+
+    if($cid!=0 ){
+        $c.=" and cid=". $cid;
+    }
+
+    $result = $db->where($c)->order("addtime desc")->getall("alisearch_cache");
+    return $result ;
+
+
+}

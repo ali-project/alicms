@@ -221,6 +221,19 @@ class ajaxapi
     }
 
 
+    public function aligetsearch()
+    {
+        load_function("tools","alicms");
+        $db = load_class("mydb","alicms");
+        $c = "title like '%".$GLOBALS['key']."%'";
+
+        if(isset($GLOBALS['cid'])&& $GLOBALS['cid']!=0 ){
+            $c.=" and cid=". $GLOBALS['cid'];
+        }
+
+        $result = $db->where($c)->order("addtime desc")->getall("alisearch_cache");
+        echo json_encode($result);
+    }
 
 
 
