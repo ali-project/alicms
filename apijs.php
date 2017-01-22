@@ -48,7 +48,7 @@ class apijs{
 //================================================================
         $pagelimit = $GLOBALS['pagelimit'] ;
         $currentpage = $GLOBALS['page'] ;
-        $resultoutput="";
+        $resultoutput="<ul class='ali-ul'>";
         $active = "ali-first-li";
         $active2 = "ali-first-a";
 
@@ -140,13 +140,16 @@ class apijs{
         $active = "ali-last-li";
         $active2 = "ali-last-a";
 
-        if($yyy['page']==$c['page']){
-            $active .= " ali-first-li-disabled";
-            $active2 .= " ali-first-a-disabled";
+        if($currentpage==$pages){
+            $active .= " ali-last-li-disabled";
+            $active2 .= " ali-last-a-disabled";
         }
 
+
+
+
         $yyy['url'] =_pageurl($urlrule,$pages,array("cid"=>$c["cid"]));
-        $resultoutput.="<li class='".$active."'><a class='".$active2."' href='".$yyy['url']."'>末页</a></li>\n";
+        $resultoutput.="<li class='".$active."'><a class='".$active2."' href='".$yyy['url']."'>末页</a></li></ul>\n";
 
         $this->pages = $resultoutput;
         if($pages<=$GLOBALS['count']){
@@ -156,12 +159,6 @@ class apijs{
 
         echo $resultoutput;
 
-
-
-
-        
-        
-        
     }
     
     
