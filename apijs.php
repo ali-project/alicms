@@ -152,7 +152,7 @@ class apijs{
         $resultoutput.="<li class='".$active."'><a class='".$active2."' href='".$yyy['url']."'>末页</a></li></ul>\n";
 
         $this->pages = $resultoutput;
-        if($pages<=$GLOBALS['count']){
+        if($count<=$GLOBALS['count']){
             $resultoutput = "<div class='ali-nopage' id='ali-nopage'></div>";
         }
 
