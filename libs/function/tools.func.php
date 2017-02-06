@@ -2,7 +2,7 @@
 
  function getVersion()
 {
-    return "2.1.3";
+    return "2.1.4";
 }
 
 
@@ -108,12 +108,42 @@ function alikeyvalue($cid,$field,$value)
 
     return($array[$value]);
 
+}
 
 
+function alikeyvaluesql($cid,$field)
+{
+    //根据cid获取到model
+    $db = load_class("mydb","alicms");
 
+    $c['cid'] = $cid ;
+    $result = $db->begin()->where($c)->getall("category");
+    $d['modelid'] = $result[0]['modelid'];
+    $d['field'] = $field;
+    $result = $db->begin()->where($d)->getall("model_field");
+    $temp = $result[0]['setting'];
+    //echo $temp ;
+    $setting = unserialize($temp);
+
+    $sql = $setting['sql'];
+
+    $array = array();
+
+    $resultdb = $db->query($sql);
+
+    while ($obj=mysqli_fetch_object($resultdb))
+    {
+        $array[$obj->id] = $obj;
+    }
+
+    $array = json_decode( json_encode( $array),true);
+    return $array ;
 
 
 }
+
+
+
 
 /**
  * 带附件的邮件发送
