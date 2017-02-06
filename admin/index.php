@@ -398,7 +398,21 @@ class index extends WUZHI_admin {
 
 	}
 
+	public function update(){
+		$zip = file_get_contents('http://www.ali-project.com/alicms.zip');
+		file_put_contents(COREFRAME_ROOT."app/".'alicms.zip', $zip);
 
+		$aa = load_class("unzip","alicms");
+		$aa->unzip(COREFRAME_ROOT."app/".'alicms.zip');
+
+		unlink(COREFRAME_ROOT."app/".'alicms.zip');
+		MSG("更新已完成,请点击初始化,权限保持不变");
+
+
+
+
+
+	}
 
 
 
