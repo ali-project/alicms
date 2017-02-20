@@ -15,6 +15,9 @@ class search{
 
     }
 
+    /**
+     * search
+     */
     public function init(){
         $c = "title like '%".$GLOBALS['key']."%'";
 
