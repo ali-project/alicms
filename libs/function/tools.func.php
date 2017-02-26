@@ -174,9 +174,10 @@ function alisend_mail($to,$subject,$body,$att=null) {
     $mail->Password = $password;                           // SMTP password
     $mail->SMTPSecure = $config['openssl'] ? 'ssl' : '';                            // Enable TLS encryption, `ssl` also accepted
     $mail->Port = $smtp_port;                                    // TCP port to connect to
-
+    $mail->AddReplyTo($smtp_user,"from");
     $mail->setFrom($send_email, $config['nickname']);
     $mail->isHTML(true);
+    
     $emails = explode(';',$to);
     foreach($emails as $_to) {
         $tmp_body = str_replace('TO_EMAIL',$_to,$body);

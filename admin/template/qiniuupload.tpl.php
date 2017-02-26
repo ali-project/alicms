@@ -7,7 +7,7 @@ $qiniu = load_class("qiniuapi","alicms");
 <body class="body pxgridsbody">
 <link rel=stylesheet type=text/css href="/index.php?m=alicms&f=css&v=iconfont">
 <section class="wrapper">
-    
+    <header><?php echo $this->menu($GLOBALS['_menuid']);?></header>
 <div class="row">
 <div class="col-lg-12">
 <section class="panel">

@@ -36,6 +36,39 @@ class js{
         echo  alipinyin("谢乃中");
 
     }
+    public function aliqiniu()
+    {
+        $db = load_class("db");
+        $r = $db->get_one('setting',array('keyid'=>'qiniu','m'=>'alicms'));
+        //MSG($r['data']);
+        $setting = unserialize($r['data']);
+        $this->domain = $setting['domain'];
+
+
+        $token = $setting['token'];
+        include "res/js/aliqiniu.js";
+
+    }
+    public function moxie()
+    {
+        include "res/js/moxie.min.js";
+
+    }
+    public function plupload()
+    {
+        include "res/js/plupload.min.js";
+
+    }
+    public function qiniu()
+    {
+
+
+
+
+
+        include "res/js/qiniu.min.js";
+
+    }
 
 
 }

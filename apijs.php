@@ -14,6 +14,11 @@ class apijs{
 
     }
 
+
+
+
+
+
     public function pages()
     {
         //echo json_encode($GLOBALS);

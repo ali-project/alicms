@@ -9,7 +9,7 @@
 class WUZHI_ziduan
 {
     public function saveziduan($c){
-        $mydb = load_class("mydb","api");
+        $mydb = load_class("mydb","alicms");
 
         $table = $c['table'];
         $d['dbname'] = $table ;
@@ -41,7 +41,7 @@ class WUZHI_ziduan
             }
         }else if($dbs[0]["tixing"]==2)
         {
-            $send = load_class("Mail","api");
+            $send = load_class("Mail","alicms");
 
             $mailarr = explode(";", $tomail);
             foreach ($mailarr as $mails) {

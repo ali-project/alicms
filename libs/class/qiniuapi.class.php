@@ -18,6 +18,8 @@ class WUZHI_qiniuapi
     private  $testAuth ;
     private  $bucket;
     private $domain ;
+    private $secretKeyx ;
+    private $accessKeyx;
     public function __construct()
     {
 
@@ -30,7 +32,9 @@ class WUZHI_qiniuapi
 
 
         $accessKey = $setting['accessKey'];//'PkDMktpjk29Ag0n86_1mtF7zhX9f1RJCyHcgjnCI';
+        $this->accessKeyx = $accessKey ;
         $secretKey = $setting['secretKey'];//'8gI2seqsKitvRn59CeOSgna_VyI82E2244JHmqj9';
+        $this->secretKeyx = $secretKey ;
         $this->bucket = $setting['bucket'];//'8gI2seqsKitvRn59CeOSgna_VyI82E2244JHmqj9';
 
         $this->testAuth = new Auth($accessKey, $secretKey);
@@ -44,6 +48,30 @@ class WUZHI_qiniuapi
     public function getdomain(){
         return $this->domain;
     }
+
+
+    public function getauth(){
+        $limit = time()+1*60*60 ;
+
+        $put_policy ='{"scope":"'.$this->bucket.'","deadline":'.$limit.'}';
+
+        $encoded =  strtr(base64_encode($put_policy), '+', '-');
+        $encoded =  strtr(base64_encode($encoded), '/', '_');
+
+
+
+
+        //echo $encoded ;
+       // $signature = $this->testAuth->hmac_sha1($this->secretKeyx, $encoded);
+        $signature = hash_hmac('sha1', $this->secretKeyx, $encoded);
+        $encode_signed  =  strtr(base64_encode($signature), '+', '-');
+        $encode_signed  =  strtr(base64_encode($encode_signed), '/', '_');
+
+        echo $this->accessKeyx.":". $encode_signed.":".$encoded ;
+
+
+    }
+
 
 
 

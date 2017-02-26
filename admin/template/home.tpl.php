@@ -50,14 +50,7 @@ $token = md5($ext._KEY);
 $urlcanshu = "&ext=".$ext."&token=".$token;
 
 ?>
-<button onclick="openiframe('/index.php?m=attachment&v=upload_dialog&callback=callback_more_dialog&htmlid=bbbbb&limit=5<?php echo $urlcanshu; ?>','bbbbb','loading',800,300,2)">fasfas</button>
-<div id="bbbbb">
-    <ul id="bbbbb_url"></ul>
 
-
-
-
-</div>
 
 <script src="<?php echo R;?>js/bootstrap.min.js"></script>
 <script src="<?php echo R;?>js/jquery.nicescroll.js" type="text/javascript"></script>

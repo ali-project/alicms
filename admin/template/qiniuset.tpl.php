@@ -40,6 +40,12 @@ include $this->template('header','core');
                     <input type="text" class="form-control" name="form[bucket]" color="#000000" value="<?php echo output($setting,'bucket');?>" >
                 </div>
             </div>
+            <div class="form-group ">
+                <label class="col-sm-2 col-xs-4 control-label"><a href="http://pchou.qiniudn.com/qiniutool/uptoken.html" target="_blank">uploadtoken</a></label>
+                <div class="col-lg-3 col-sm-4 col-xs-4 input-group">
+                    <input type="text" class="form-control" name="form[token]" color="#000000" value="<?php echo output($setting,'token');?>" >
+                </div>
+            </div>
 
 
 
