@@ -9,7 +9,7 @@ function qiniuinit(browse_button,ismulti,addcallback,okcallback,errcallback,exte
         // save_key: true,   // 默认 false。若在服务端生成uptoken的上传策略中指定了 `sava_key`，则开启，SDK会忽略对key的处理
         domain: 'http://qiniu-plupload.qiniudn.com/',   //bucket 域名，下载资源时用到，**必需**
         container: 'container',           //上传区域DOM ID，默认是browser_button的父元素，
-        max_file_size: '100mb',           //最大文件体积限制
+        max_file_size: '5mb',           //最大文件体积限制
         flash_swf_url: '',  //引入flash,相对路径
         max_retries: 3,                   //上传失败最大重试次数
         dragdrop: false,                   //开启可拖曳上传
@@ -17,14 +17,14 @@ function qiniuinit(browse_button,ismulti,addcallback,okcallback,errcallback,exte
         chunk_size: '4mb',                //分块上传时，每片的体积
         auto_start: true,                 //选择文件后自动上传，若关闭需要自己绑定事件触发上传
         multi_selection: ismulti,
-        filters : {
-            max_file_size : '100mb',
-            prevent_duplicates: true,
-            // Specify what files to browse for
-            mime_types: [
-                {title : "Image files", extensions : extensions}, // 限定jpg,gif,png后缀上传
-            ]
-        },
+        // filters : {
+        //     max_file_size : '100mb',
+        //     prevent_duplicates: true,
+        //     // Specify what files to browse for
+        //     mime_types: [
+        //         {title : "Image files", extensions : extensions}, // 限定jpg,gif,png后缀上传
+        //     ]
+        // },
 
 
 
