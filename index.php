@@ -104,7 +104,12 @@ class index
         echo getVersion();
     }
 
+    public function test(){
+        load_function("tools","alicms");
+        alilog("/app/");
 
+
+    }
     
     
     

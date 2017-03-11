@@ -2,7 +2,7 @@
 
  function getVersion()
 {
-    return "2.1.5";
+    return "2.1.6";
 }
 
 
@@ -109,6 +109,18 @@ function alikeyvalue($cid,$field,$value)
     return($array[$value]);
 
 }
+
+
+function alilog($log,$dic="/app/"){
+
+    $times = date('Y-m-d H:i:s', SYS_TIME);
+    $log = $times."|".$log."\n";
+    $aaa = COREFRAME_ROOT.$dic."/".date('Y-m-d', SYS_TIME).".log";
+    file_put_contents($aaa, $log,FILE_APPEND);
+
+
+}
+
 
 
 function alikeyvaluesql($cid,$field)
