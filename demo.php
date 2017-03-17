@@ -10,6 +10,21 @@ class demo
 {
     public function alidayu()
     {
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         include "demo/demoalidayu.html";
     }
 
