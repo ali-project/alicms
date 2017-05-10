@@ -25,7 +25,6 @@ class WUZHI_Mail
 
 
         $iClientProfile = DefaultProfile::getProfile($setting['regionId'], $setting['accessKeyId'], $setting['accessSecret']);
-//        $iClientProfile = DefaultProfile::getProfile("cn-beijing", "WTysT7YJKPP1FtQm", "Ogb3RigbpdekUDOhcFiwYSk5nlvFVa");
         $client = new DefaultAcsClient($iClientProfile);
         $request = new Dm\SingleSendMailRequest();
         $request->setAccountName($setting['frommail']);
