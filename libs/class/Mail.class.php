@@ -24,6 +24,9 @@ class WUZHI_Mail
 
 
 
+
+//
+
         $iClientProfile = DefaultProfile::getProfile($setting['regionId'], $setting['accessKeyId'], $setting['accessSecret']);
         $client = new DefaultAcsClient($iClientProfile);
         $request = new Dm\SingleSendMailRequest();
